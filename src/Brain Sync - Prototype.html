@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Brain Sync — Clickable Prototype</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="prototype/styles.css" />
+<link rel="stylesheet" href="prototype/screens.css" />
+</head>
+<body data-screen-label="Brain Sync Prototype">
+
+<!-- ═══════════════════ TOP BAR (persistent) ═══════════════════ -->
+<header class="topbar">
+  <a class="brand" data-go="home" href="#home">
+    <span class="brand-mark"><span></span><span></span></span>
+    Brain Sync
+  </a>
+  <nav class="nav">
+    <a data-go="browse" href="#browse">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      Find Tutors
+    </a>
+    <a data-go="apply" href="#apply">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 11h-6"></path><path d="M19 8v6"></path></svg>
+      Become a Tutor
+    </a>
+    <a data-go="sessions" href="#sessions">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h18"></path></svg>
+      My Sessions
+    </a>
+  </nav>
+  <div class="session-actions">
+    <button class="btn btn-ghost sm">Help</button>
+    <div class="user-chip" data-go="sessions">
+      <span class="avatar"></span>
+      <span class="name">Lena</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════ SCREEN 1 · HOME ═══════════════════ -->
+<main class="screen is-active" data-screen="home" data-screen-label="01 Home">
+
+  <section class="home-hero">
+    <div class="inner">
+      <div>
+        <h1>Tutoring by students <em>who've been there.</em></h1>
+        <p class="sub">Brain Sync connects you with verified peer tutors at IMC Krems who took the same class last semester — and got the A. Real notes, real strategies, real office hours.</p>
+        <div class="ctas">
+          <button class="btn btn-coral lg" data-go="browse">
+            Find a tutor
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path></svg>
+          </button>
+          <button class="btn btn-outline-light lg" data-go="apply" href="#apply">Become a tutor</button>
+        </div>
+        <div class="trust">
+          <div class="avatars">
+            <span class="av-1"></span><span class="av-2"></span><span class="av-3"></span><span class="av-4"></span>
+          </div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div style="margin-top:2px">Trusted by students across IMC Krems</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Find a tutor card -->
+      <div class="tab-card">
+        <div class="panel is-active" data-panel="find" style="border-radius: 14px">
+          <h3>Tell us what you're studying</h3>
+          <div class="field">
+            <label for="home-course">Course or subject</label>
+            <input id="home-course" type="text" placeholder="e.g. Organic Chemistry, Programming, Statistics" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Year</label>
+              <select>
+                <option>Year 1</option>
+                <option selected>Year 2</option>
+                <option>Year 3</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Semester</label>
+              <select>
+                <option>Summer 2026</option>
+                <option selected>Fall 2026</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>I need help with</label>
+            <div class="chips" id="home-needs">
+              <button type="button" class="chip is-on">Exam prep</button>
+              <button type="button" class="chip">Problem sets</button>
+              <button type="button" class="chip">Essay review</button>
+              <button type="button" class="chip">Concept basics</button>
+              <button type="button" class="chip">Project / lab</button>
+            </div>
+          </div>
+          <button class="btn btn-coral lg block" data-go="browse" href="#browse">
+            See matching tutors
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path></svg>
+          </button>
+          <p class="panel-note">First 30 minutes free · No card required to browse</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="stat"><div class="num">1,240<em>+</em></div><div class="lbl">Verified peer tutors</div></div>
+      <div class="stat"><div class="num">84,000<em>+</em></div><div class="lbl">Sessions completed</div></div>
+      <div class="stat"><div class="num">4.9<em>/5</em></div><div class="lbl">Average session rating</div></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════ SCREEN 2 · BROWSE TUTORS ═══════════════════ -->
+<main class="screen" data-screen="browse" data-screen-label="02 Browse tutors">
+  <div class="page-wrap">
+    <div class="crumbs">
+      <a data-go="home" href="#home">Home</a><span class="sep">/</span>
+      <span>Find a tutor</span>
+    </div>
+
+    <h1 class="page-title" id="browse-title">Find a <em>tutor</em></h1>
+    <p class="page-sub" id="browse-sub">Search the IMC Krems course catalog to see tutors who took the course last semester.</p>
+
+    <div class="browse">
+      <!-- Filters -->
+      <aside class="filters card">
+        <div class="group">
+          <h4>Search</h4>
+          <input id="browse-search" type="text" placeholder="Course or keyword" value=""
+            style="width:100%; padding:11px 12px; border:1px solid var(--line-2); border-radius:10px; background:#fff; font:inherit; font-size:14px" />
+        </div>
+        <div class="group">
+          <h4>Format</h4>
+          <label class="opt"><input type="checkbox" checked /> Online</label>
+          <label class="opt"><input type="checkbox" checked /> In person (Krems)</label>
+        </div>
+        <div class="group">
+          <h4>Hourly rate</h4>
+          <div class="price-row">
+            <span>€</span><input type="number" value="10" />
+            <span>–</span>
+            <span>€</span><input type="number" value="30" />
+          </div>
+        </div>
+        <div class="group">
+          <h4>Language</h4>
+          <label class="opt lang-opt"><input type="checkbox" value="EN" checked /> English</label>
+          <label class="opt lang-opt"><input type="checkbox" value="DE" checked /> Deutsch</label>
+        </div>
+        <div class="group">
+          <h4>Rating</h4>
+          <label class="opt"><input type="radio" name="rating" /> 4.5+</label>
+          <label class="opt"><input type="radio" name="rating" checked /> 4.0+</label>
+          <label class="opt"><input type="radio" name="rating" /> Any</label>
+        </div>
+      </aside>
+
+      <!-- Results -->
+      <section>
+        <div class="results-head">
+          <div class="count" id="results-count">Start by <em>searching a course</em></div>
+          <label class="sort">
+            Sort by
+            <select>
+              <option>Best match</option>
+              <option>Highest rated</option>
+              <option>Lowest price</option>
+              <option>Most reviewed</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="tutor-list" id="tutor-list"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ SCREEN 3 · TUTOR PROFILE ═══════════════════ -->
+<main class="screen" data-screen="tutor" data-screen-label="03 Tutor profile">
+  <div class="page-wrap">
+    <div class="crumbs">
+      <a data-go="home" href="#home">Home</a><span class="sep">/</span>
+      <a data-go="browse" href="#browse">Find a tutor</a><span class="sep">/</span>
+      <span data-bind="tutor-name">Nina Vogel</span>
+    </div>
+
+    <div class="profile">
+      <!-- Left: profile body -->
+      <section>
+        <div class="profile-head">
+          <span class="avatar-xl av-5" data-bind="tutor-avatar"></span>
+          <div>
+            <h1 data-bind="tutor-name">Nina Vogel</h1>
+            <div class="role" data-bind="tutor-role">BSc Health Management · 3rd year · IMC Krems</div>
+            <div class="stat-row">
+              <div><b data-bind="tutor-rating">4.7</b><span class="stars" style="margin-left:4px">★★★★★</span></div>
+              <div><b data-bind="tutor-reviews">29 reviews</b>completed</div>
+              <div><b>~2 hrs</b>average response time</div>
+              <div><b>EN · DE</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-tabs">
+          <button class="is-active" data-section="about">About</button>
+          <button data-section="courses">Courses</button>
+          <button data-section="reviews">Reviews</button>
+          <button data-section="availability">Availability</button>
+        </div>
+
+        <div class="profile-section is-active" data-section="about">
+          <h3>About me</h3>
+          <p data-bind="tutor-bio">I struggled with OChem mechanisms until I found a way to draw them as little stories. Happy to share the framework that finally made it click.</p>
+          <p>I tutor in English and German, and I'm flexible about meeting on campus at the library or jumping on a Zoom call. For exam prep weeks I block out evenings — book early if you want one of those slots.</p>
+          <p>Outside of tutoring I work two days a week at the Krems hospital lab, which is where I first got obsessed with organic chemistry. Ask me about it, it's actually fun once you get past the arrow-pushing.</p>
+        </div>
+
+        <div class="profile-section" data-section="courses">
+          <h3>Courses I tutor</h3>
+          <div class="course-list">
+            <div class="course-row">
+              <div><div class="code">Organic Chemistry I</div><div class="school">IMC Krems · BSc Health Mgmt</div></div>
+              <div class="muted" style="font-size:13px">Last taken Fall '25</div>
+              <span class="grade">Grade 1 (very good)</span>
+            </div>
+            <div class="course-row">
+              <div><div class="code">General Biology</div><div class="school">IMC Krems · BSc Health Mgmt</div></div>
+              <div class="muted" style="font-size:13px">Last taken Spring '25</div>
+              <span class="grade">Grade 1 (very good)</span>
+            </div>
+            <div class="course-row">
+              <div><div class="code">Anatomy I</div><div class="school">IMC Krems · BSc Health Mgmt</div></div>
+              <div class="muted" style="font-size:13px">Last taken Fall '24</div>
+              <span class="grade">Grade 2 (good)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section" data-section="reviews">
+          <h3>What students say</h3>
+          <div class="review-list">
+            <div class="review-card">
+              <div class="head">
+                <span class="avatar-sm av-2"></span>
+                <div>
+                  <div class="who">Jonas P. · BSc Health Mgmt</div>
+                  <div class="when">3 weeks ago · Organic Chemistry I</div>
+                </div>
+                <div class="stars" style="margin-left:auto">★★★★★</div>
+              </div>
+              <p>Nina drew out every mechanism we covered. I went from a 4 to a 2 on the second exam. Worth every euro.</p>
+            </div>
+            <div class="review-card">
+              <div class="head">
+                <span class="avatar-sm av-3"></span>
+                <div>
+                  <div class="who">Anna R. · BSc Health Mgmt</div>
+                  <div class="when">Last month · Biology</div>
+                </div>
+                <div class="stars" style="margin-left:auto">★★★★★</div>
+              </div>
+              <p>Patient and very clear. We did three sessions before my Biology exam and she helped me prioritise what to study.</p>
+            </div>
+            <div class="review-card">
+              <div class="head">
+                <span class="avatar-sm av-6"></span>
+                <div>
+                  <div class="who">Marko D. · BSc Health Mgmt</div>
+                  <div class="when">2 months ago · Organic Chemistry I</div>
+                </div>
+                <div class="stars" style="margin-left:auto">★★★★<span class="dim">★</span></div>
+              </div>
+              <p>Knows her stuff. Sessions were a bit rushed at the end but otherwise really helpful, especially for the lab portion.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section" data-section="availability">
+          <h3>This week's availability</h3>
+          <p class="muted">Pick a time on the next screen — these are just indicative slots.</p>
+          <div class="chips" style="margin-top:14px">
+            <span class="chip">Mon evenings</span>
+            <span class="chip">Tue 14:00–18:00</span>
+            <span class="chip">Wed mornings</span>
+            <span class="chip">Thu evenings</span>
+            <span class="chip">Sat all day</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: book card -->
+      <aside class="card book-card">
+        <div class="price-row">
+          <span class="price" data-bind="tutor-rate">€18</span>
+          <span class="unit">/hour</span>
+          <span class="strike">€25</span>
+        </div>
+        <div class="row-info"><span class="k">Format</span><span>Online or in person</span></div>
+        <div class="row-info"><span class="k">Response time</span><span>~2 hours</span></div>
+        <div class="row-info"><span class="k">Languages</span><span>EN · DE</span></div>
+        <div class="row-info"><span class="k">First session</span><span style="color:var(--leaf)">30 min free</span></div>
+        <button class="btn btn-coral lg block" style="margin-top:18px" data-go="slot">
+          Book a session
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path></svg>
+        </button>
+        <button class="btn btn-outline block" style="margin-top:8px">Message tutor</button>
+        <p style="font-size:12.5px; color:var(--muted-ink); margin: 14px 0 0; text-align:center">No charge until session is confirmed</p>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ SCREEN 4 · PICK A TIME SLOT ═══════════════════ -->
+<main class="screen" data-screen="slot" data-screen-label="04 Pick a slot">
+  <div class="page-wrap">
+    <div class="crumbs">
+      <a data-go="browse" href="#browse">Find a tutor</a><span class="sep">/</span>
+      <a data-go="tutor" href="#tutor" data-bind="tutor-name">Nina Vogel</a><span class="sep">/</span>
+      <span>Pick a time</span>
+    </div>
+
+    <h1 class="page-title">Pick a <em>time slot</em></h1>
+    <p class="page-sub">Highlighted cells are when your tutor is free. Sessions are 60 minutes by default — you can change duration on the next step.</p>
+
+    <div class="slot-page">
+      <section>
+        <div class="cal-head">
+          <div class="week-label">Mon 18 — Sun 24 May</div>
+          <div class="cal-nav">
+            <button aria-label="Previous"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+            <button aria-label="Next"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></button>
+            <button class="btn btn-outline sm" style="margin-left:8px">Today</button>
+          </div>
+        </div>
+
+        <div class="cal-grid">
+          <!-- Header row -->
+          <div></div>
+          <div class="day-head">Mon<span class="num">18</span></div>
+          <div class="day-head is-today">Tue<span class="num">19</span></div>
+          <div class="day-head">Wed<span class="num">20</span></div>
+          <div class="day-head">Thu<span class="num">21</span></div>
+          <div class="day-head">Fri<span class="num">22</span></div>
+          <div class="day-head">Sat<span class="num">23</span></div>
+          <div class="day-head">Sun<span class="num">24</span></div>
+
+          <div class="hour">09:00</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Tue" data-date="May 19" data-time="09:00">free</div>
+          <div class="slot" data-day="Wed" data-date="May 20" data-time="09:00">free</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Sat" data-date="May 23" data-time="09:00">free</div>
+          <div class="slot empty"></div>
+
+          <div class="hour">10:00</div>
+          <div class="slot" data-day="Mon" data-date="May 18" data-time="10:00">free</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Wed" data-date="May 20" data-time="10:00">free</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Fri" data-date="May 22" data-time="10:00">free</div>
+          <div class="slot" data-day="Sat" data-date="May 23" data-time="10:00">free</div>
+          <div class="slot empty"></div>
+
+          <div class="hour">11:00</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Wed" data-date="May 20" data-time="11:00">free</div>
+          <div class="slot" data-day="Thu" data-date="May 21" data-time="11:00">free</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Sat" data-date="May 23" data-time="11:00">free</div>
+          <div class="slot empty"></div>
+
+          <div class="hour">14:00</div>
+          <div class="slot" data-day="Mon" data-date="May 18" data-time="14:00">free</div>
+          <div class="slot" data-day="Tue" data-date="May 19" data-time="14:00">free</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Thu" data-date="May 21" data-time="14:00">free</div>
+          <div class="slot" data-day="Fri" data-date="May 22" data-time="14:00">free</div>
+          <div class="slot empty"></div>
+          <div class="slot" data-day="Sun" data-date="May 24" data-time="14:00">free</div>
+
+          <div class="hour">15:00</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Tue" data-date="May 19" data-time="15:00">free</div>
+          <div class="slot" data-day="Wed" data-date="May 20" data-time="15:00">free</div>
+          <div class="slot" data-day="Thu" data-date="May 21" data-time="15:00">free</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot empty"></div>
+          <div class="slot" data-day="Sun" data-date="May 24" data-time="15:00">free</div>
+
+          <div class="hour">17:00</div>
+          <div class="slot" data-day="Mon" data-date="May 18" data-time="17:00">free</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Wed" data-date="May 20" data-time="17:00">free</div>
+          <div class="slot" data-day="Thu" data-date="May 21" data-time="17:00">free</div>
+          <div class="slot" data-day="Fri" data-date="May 22" data-time="17:00">free</div>
+          <div class="slot empty"></div>
+          <div class="slot empty"></div>
+
+          <div class="hour">18:00</div>
+          <div class="slot" data-day="Mon" data-date="May 18" data-time="18:00">free</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot" data-day="Thu" data-date="May 21" data-time="18:00">free</div>
+          <div class="slot is-taken">booked</div>
+          <div class="slot empty"></div>
+          <div class="slot empty"></div>
+        </div>
+
+        <div class="row" style="margin-top:14px; font-size:12.5px; color:var(--muted-ink); gap:18px">
+          <span class="row" style="gap:6px"><span style="width:14px;height:14px;border-radius:4px;background:var(--cream-2)"></span>Available</span>
+          <span class="row" style="gap:6px"><span style="width:14px;height:14px;border-radius:4px;background:var(--coral)"></span>Selected</span>
+          <span class="row" style="gap:6px"><span style="width:14px;height:14px;border-radius:4px;background:transparent;border:1px dashed var(--line-2)"></span>Booked / unavailable</span>
+        </div>
+      </section>
+
+      <!-- Right: summary -->
+      <aside class="book-summary">
+        <div class="card-flat" style="margin-bottom:14px">
+          <div class="uppercase-eyebrow" style="margin-bottom:10px">Your tutor</div>
+          <div class="row" id="slot-tutor" style="gap:12px"></div>
+        </div>
+        <div class="uppercase-eyebrow" style="margin-bottom:10px">Selected time</div>
+        <div id="slot-summary" class="selected-slot empty"><b style="color:inherit">No slot selected</b>Pick a time from the calendar to continue.</div>
+        <button id="slot-continue" class="btn btn-coral lg block" data-go="details" disabled>
+          Continue to details
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path></svg>
+        </button>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ SCREEN 5 · SESSION DETAILS ═══════════════════ -->
+<main class="screen" data-screen="details" data-screen-label="05 Session details">
+  <div class="page-wrap">
+    <div class="crumbs">
+      <a data-go="tutor" href="#tutor" data-bind="tutor-name">Tutor</a><span class="sep">/</span>
+      <a data-go="slot" href="#slot">Pick a time</a><span class="sep">/</span>
+      <span>Session details</span>
+    </div>
+
+    <h1 class="page-title">Session <em>details</em></h1>
+    <p class="page-sub">Tell your tutor what to prepare. The clearer your topic, the better the session.</p>
+
+    <div class="form-page">
+      <section>
+        <!-- Tutor recap (populated from state) -->
+        <div class="card-flat tutor-recap" id="details-tutor-recap" style="margin-bottom:18px"></div>
+
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="field" style="margin:0">
+            <label>Course</label>
+            <input id="details-course" type="text" />
+          </div>
+        </div>
+
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="field" style="margin:0">
+            <label for="topic-input">What do you want to work on?</label>
+            <textarea id="topic-input" placeholder="e.g. exam prep, problem sets, specific chapters or concepts"></textarea>
+          </div>
+        </div>
+
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:12px">Format</div>
+          <div class="format-grid">
+            <div class="format-card is-on" data-format="online">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"></rect><path d="m22 8-6 4 6 4z"></path></svg>
+              </div>
+              <div>
+                <div class="ttl">Online — Zoom</div>
+                <div class="des">Link sent 10 min before. Best for theory &amp; problem walkthroughs.</div>
+              </div>
+            </div>
+            <div class="format-card" data-format="in-person">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <div class="ttl">In person — IMC Library</div>
+                <div class="des">Group Room B, ground floor. Whiteboards available.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:12px">Duration</div>
+          <div class="chips duration-chips">
+            <button type="button" class="chip" data-duration="30">30 min</button>
+            <button type="button" class="chip is-on" data-duration="60">60 min</button>
+            <button type="button" class="chip" data-duration="90">90 min</button>
+            <button type="button" class="chip" data-duration="120">2 hours</button>
+          </div>
+        </div>
+
+        <div class="card-flat">
+          <div class="uppercase-eyebrow" style="margin-bottom:12px">Materials you'll bring</div>
+          <div class="chips" id="materials-chips">
+            <button type="button" class="chip is-on">Lecture slides</button>
+            <button type="button" class="chip">Past exam</button>
+            <button type="button" class="chip">Problem set</button>
+            <button type="button" class="chip">My notes</button>
+            <button type="button" class="chip">Nothing — start fresh</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: live summary -->
+      <aside class="card">
+        <div class="uppercase-eyebrow" style="margin-bottom:14px">Booking summary</div>
+        <div id="details-summary"></div>
+        <button class="btn btn-coral lg block" style="margin-top:18px" data-go="checkout">
+          Continue to payment
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path></svg>
+        </button>
+        <p style="font-size:12.5px; color:var(--muted-ink); margin: 12px 0 0; text-align:center">Free cancellation up to 12 hours before</p>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ SCREEN 6 · CHECKOUT ═══════════════════ -->
+<main class="screen" data-screen="checkout" data-screen-label="06 Checkout">
+  <div class="page-wrap">
+    <div class="crumbs">
+      <a data-go="slot" href="#slot">Pick a time</a><span class="sep">/</span>
+      <a data-go="details" href="#details">Session details</a><span class="sep">/</span>
+      <span>Checkout</span>
+    </div>
+
+    <h1 class="page-title">Confirm &amp; <em>pay</em></h1>
+    <p class="page-sub">Your card is only charged once the tutor accepts. Cancel free up to 12 hours before.</p>
+
+    <div class="checkout">
+      <section>
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:12px">Payment method</div>
+          <div class="pay-tabs">
+            <button class="pay-tab is-on">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg>
+              Card
+            </button>
+            <button class="pay-tab">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V7a5 5 0 0 1 10 0v4"></path><rect x="3" y="11" width="18" height="11" rx="2"></rect></svg>
+              SEPA
+            </button>
+            <button class="pay-tab">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10"></path><path d="M8 12h8"></path></svg>
+              Klarna
+            </button>
+          </div>
+
+          <div class="card-form">
+            <div class="field">
+              <label>Card number</label>
+              <input type="text" value="•••• •••• •••• 4242" />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>Expiry</label>
+                <input type="text" value="04 / 28" />
+              </div>
+              <div class="field">
+                <label>CVC</label>
+                <input type="text" value="•••" />
+              </div>
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label>Name on card</label>
+              <input type="text" value="Lena Bauer" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card-flat">
+          <div class="uppercase-eyebrow" style="margin-bottom:12px">Billing</div>
+          <label class="opt" style="display:flex; gap:10px; padding:6px 0; font-size:14px"><input type="checkbox" checked /> Send receipt to <b style="margin-left:4px">you@imc.ac.at</b></label>
+          <label class="opt" style="display:flex; gap:10px; padding:6px 0; font-size:14px"><input type="checkbox" /> Apply university discount code</label>
+        </div>
+      </section>
+
+      <!-- Right: order summary -->
+      <aside class="card">
+        <div class="uppercase-eyebrow" style="margin-bottom:14px">Order</div>
+        <div id="checkout-summary"></div>
+        <button class="btn btn-coral lg block" style="margin-top:18px" data-go="confirmed">
+          Pay &amp; book
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+        </button>
+        <p style="font-size:12px; color:var(--muted-ink); margin:12px 0 0; text-align:center">Secure payment via Stripe · Brain Sync never stores your card</p>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ SCREEN 7 · CONFIRMATION ═══════════════════ -->
+<main class="screen" data-screen="confirmed" data-screen-label="07 Confirmation">
+  <div class="page-wrap">
+    <div class="confirm-wrap">
+      <div class="confirm-check">
+        <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+      </div>
+      <h1>You're <em>booked.</em></h1>
+      <p class="lede">We've sent the calendar invite and Zoom link to your IMC email. Your tutor will message you shortly to confirm.</p>
+
+      <div class="confirm-detail" id="confirm-detail"></div>
+
+      <div class="confirm-actions">
+        <button class="btn btn-ink lg" data-go="sessions">View in My Sessions</button>
+        <button class="btn btn-outline lg">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h18"></path></svg>
+          Add to calendar
+        </button>
+        <button class="btn btn-outline lg">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Message tutor
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ SCREEN 8 · MY SESSIONS ═══════════════════ -->
+<main class="screen" data-screen="sessions" data-screen-label="08 My sessions">
+  <div class="page-wrap">
+    <div class="crumbs">
+      <a data-go="home" href="#home">Home</a><span class="sep">/</span>
+      <span>My sessions</span>
+    </div>
+
+    <h1 class="page-title">My <em>sessions</em></h1>
+    <p class="page-sub">Your upcoming and past tutoring sessions, all in one place.</p>
+
+    <div class="dash-grid">
+      <section>
+        <div class="section-head">
+          <h3>Upcoming</h3>
+          <button class="btn btn-outline sm" data-go="browse">+ Book another session</button>
+        </div>
+        <div id="upcoming-list"></div>
+
+        <div class="section-head" style="margin-top:32px">
+          <h3>Past sessions</h3>
+          <span class="muted" style="font-size:13px">3 this month</span>
+        </div>
+        <div class="session-item">
+          <div class="when"><span class="small">Mon</span>11</div>
+          <div>
+            <div class="with">Organic Chemistry with Nina Vogel</div>
+            <div class="topic">14:00 · 60 min · ★★★★★ rated</div>
+          </div>
+          <button class="btn btn-outline sm">Book again</button>
+        </div>
+        <div class="session-item">
+          <div class="when"><span class="small">Wed</span>06</div>
+          <div>
+            <div class="with">Statistics with Lukas Brenner</div>
+            <div class="topic">15:00 · 90 min · ★★★★★ rated</div>
+          </div>
+          <button class="btn btn-outline sm">Book again</button>
+        </div>
+        <div class="session-item">
+          <div class="when"><span class="small">Thu</span>30</div>
+          <div>
+            <div class="with">Biology with Nina Vogel</div>
+            <div class="topic">17:00 · 60 min · ★★★★<span style="color:var(--cream-3)">★</span> rated</div>
+          </div>
+          <button class="btn btn-outline sm">Book again</button>
+        </div>
+      </section>
+
+      <aside>
+        <div class="sidebar-card">
+          <h4>This month</h4>
+          <div class="usage-stat">4 sessions</div>
+          <div class="usage-lbl">€127 spent · 1 free intro used</div>
+        </div>
+        <div class="sidebar-card">
+          <h4>Messages</h4>
+          <div class="row" style="gap:10px; padding:8px 0">
+            <span class="avatar-sm av-5"></span>
+            <div style="flex:1">
+              <div style="font-weight:600; font-size:14px">Nina Vogel</div>
+              <div style="font-size:13px; color:var(--muted-ink)">Looking forward to Tuesday — bring your past exam!</div>
+            </div>
+          </div>
+          <div class="row" style="gap:10px; padding:8px 0; border-top:1px solid var(--line)">
+            <span class="avatar-sm av-2"></span>
+            <div style="flex:1">
+              <div style="font-weight:600; font-size:14px">Lukas Brenner</div>
+              <div style="font-size:13px; color:var(--muted-ink)">Thanks for the 5-star review!</div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <h4>Refer a friend</h4>
+          <p style="margin:0 0 12px; font-size:14px; color:var(--muted-ink)">Both of you get €5 off your next session.</p>
+          <button class="btn btn-ink sm block">Copy referral link</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ SCREEN 9 · APPLY TO BECOME A TUTOR ═══════════════════ -->
+<main class="screen" data-screen="apply" data-screen-label="09 Apply to become a tutor">
+  <div class="page-wrap">
+    <div class="crumbs">
+      <a data-go="home" href="#home">Home</a><span class="sep">/</span>
+      <span>Become a tutor</span>
+    </div>
+
+    <h1 class="page-title">Become a <em>tutor</em></h1>
+    <p class="page-sub">Teach what you just aced. Apply with your IMC Krems student profile and we'll match you with classmates who need help.</p>
+
+    <div class="apply-grid">
+      <!-- LEFT: form -->
+      <section>
+
+        <!-- About you -->
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:14px">About you</div>
+          <div class="field-row">
+            <div class="field">
+              <label for="apply-first">First name</label>
+              <input id="apply-first" type="text" placeholder="Lena" />
+            </div>
+            <div class="field">
+              <label for="apply-last">Last name</label>
+              <input id="apply-last" type="text" placeholder="Bauer" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="apply-email">IMC email</label>
+              <input id="apply-email" type="email" placeholder="firstname.lastname@imc.ac.at" />
+            </div>
+            <div class="field">
+              <label for="apply-pronouns">Pronouns</label>
+              <select id="apply-pronouns">
+                <option value="">Prefer not to say</option>
+                <option>she / her</option>
+                <option>he / him</option>
+                <option>they / them</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Study -->
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:14px">Your study at IMC Krems</div>
+          <div class="field">
+            <label for="apply-program">Programme</label>
+            <select id="apply-program">
+              <option>BSc International Business</option>
+              <option>BSc Marketing</option>
+              <option>BSc Health Management</option>
+              <option>BSc Medical &amp; Pharmaceutical Biotechnology</option>
+              <option>BSc Informatics</option>
+              <option>BSc Tourism &amp; Leisure</option>
+              <option>BSc European Studies</option>
+              <option>BSc Applied Math</option>
+              <option>MSc International Business</option>
+              <option>MSc Informatics</option>
+              <option>MSc Medical &amp; Pharmaceutical Biotech</option>
+              <option>MA Applied Linguistics</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="apply-year">Year</label>
+              <select id="apply-year">
+                <option>Year 1</option>
+                <option>Year 2</option>
+                <option selected>Year 3</option>
+                <option>MSc / MA</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Languages you teach in</label>
+              <div class="chips" id="apply-langs">
+                <button type="button" class="chip is-on" data-lang="EN">English</button>
+                <button type="button" class="chip is-on" data-lang="DE">Deutsch</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Courses -->
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:14px">Courses you can tutor</div>
+          <p class="muted" style="margin:0 0 12px; font-size:13.5px">Pick the IMC Krems courses you've passed with grade 1 or 2. You'll need to upload your transcript before going live.</p>
+          <div class="field" style="margin-bottom:10px">
+            <input id="apply-course-search" type="text" placeholder="Search courses to add…" />
+          </div>
+          <div class="chips" id="apply-courses"></div>
+          <div class="muted" id="apply-courses-empty" style="font-size:13px; padding:10px 2px">Add at least one course to continue.</div>
+        </div>
+
+        <!-- Rate + format -->
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:14px">Rate &amp; format</div>
+
+          <div class="rate-card-light">
+            <div class="rate-head-light">
+              <span class="lbl">Your hourly rate</span>
+              <span class="rate-num-light">€<span id="applyRateValue">22</span><span class="unit">/hr</span></span>
+            </div>
+            <input id="applyRateSlider" type="range" class="rate-slider-light" min="10" max="50" step="1" value="22" />
+            <div class="rate-scale-light"><span>€10</span><span>€50</span></div>
+            <div class="rate-hint-light">
+              You keep <b id="applyRateNet">€18.70/hr</b> after the 15% platform fee.
+            </div>
+          </div>
+
+          <div style="margin-top:18px">
+            <div class="uppercase-eyebrow" style="margin-bottom:10px; font-size:11px">How you'll teach</div>
+            <div class="format-grid">
+              <div class="format-card is-on" data-apply-format="online">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"></rect><path d="m22 8-6 4 6 4z"></path></svg>
+                </div>
+                <div>
+                  <div class="ttl">Online — Zoom</div>
+                  <div class="des">Teach from your laptop, anywhere.</div>
+                </div>
+              </div>
+              <div class="format-card" data-apply-format="in-person">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <div class="ttl">In person — IMC Library</div>
+                  <div class="des">Meet at Group Room B, Krems.</div>
+                </div>
+              </div>
+              <div class="format-card" data-apply-format="both">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4 5 9l5 5"></path><path d="M14 20l5-5-5-5"></path></svg>
+                </div>
+                <div>
+                  <div class="ttl">Both</div>
+                  <div class="des">Students pick what works for them.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:14px">Your bio</div>
+          <p class="muted" style="margin:0 0 12px; font-size:13.5px">A short intro students will see on your profile. Talk about how you study, not just what you know.</p>
+          <div class="field" style="margin:0">
+            <textarea id="apply-bio" placeholder="e.g. I struggled with mechanisms until I found a way to draw them as little stories. Happy to share the framework that finally made it click."></textarea>
+          </div>
+        </div>
+
+        <!-- Verification -->
+        <div class="card-flat" style="margin-bottom:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:14px">Verification</div>
+          <label class="opt" style="display:flex; gap:10px; padding:8px 0; font-size:14px"><input type="checkbox" /> I'll upload my IMC transcript before the first session</label>
+          <label class="opt" style="display:flex; gap:10px; padding:8px 0; font-size:14px"><input type="checkbox" checked /> I agree to the <a style="text-decoration:underline">tutor handbook</a> and <a style="text-decoration:underline">code of conduct</a></label>
+        </div>
+
+        <div class="row" style="gap:10px">
+          <button class="btn btn-coral lg" data-go="apply-sent" href="#apply-sent">
+            Submit application
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path></svg>
+          </button>
+          <button class="btn btn-outline lg" data-go="home" href="#home">Cancel</button>
+        </div>
+      </section>
+
+      <!-- RIGHT: live profile preview -->
+      <aside class="apply-preview">
+        <div class="uppercase-eyebrow" style="margin-bottom:14px">Preview · how students will see you</div>
+
+        <article class="tutor-card is-expanded apply-preview-card" id="apply-card-preview"></article>
+
+        <div class="card-flat" style="margin-top:18px">
+          <div class="uppercase-eyebrow" style="margin-bottom:10px">What happens next</div>
+          <ul class="apply-steps">
+            <li><span class="num">1</span>We verify your IMC email &amp; transcript (1–2 days)</li>
+            <li><span class="num">2</span>You add availability in your calendar</li>
+            <li><span class="num">3</span>You start getting matched to students</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ SCREEN 10 · APPLICATION SUBMITTED ═══════════════════ -->
+<main class="screen" data-screen="apply-sent" data-screen-label="10 Application submitted">
+  <div class="page-wrap">
+    <div class="confirm-wrap">
+      <div class="confirm-check">
+        <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+      </div>
+      <h1>Application <em>sent.</em></h1>
+      <p class="lede">We'll verify your IMC email and transcript within 1–2 business days. You'll get an email at <b id="apply-sent-email">your IMC address</b> when your profile goes live.</p>
+      <div class="confirm-actions">
+        <button class="btn btn-ink lg" data-go="home" href="#home">Back to home</button>
+        <button class="btn btn-outline lg" data-go="browse" href="#browse">Browse other tutors</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="foot">
+  <div class="inner">
+    <div>
+      <div class="brand" style="color:var(--cream); margin-bottom:12px">
+        <span class="brand-mark"><span></span><span></span></span>
+        Brain Sync
+      </div>
+      <p class="small" style="max-width:320px">Peer-to-peer tutoring built for IMC Krems. By students, for students.</p>
+    </div>
+    <div>
+      <h5>Students</h5>
+      <a data-go="browse" href="#browse">Find a tutor</a>
+      <a data-go="sessions" href="#sessions">My sessions</a>
+      <a>Pricing</a>
+      <a>How it works</a>
+    </div>
+    <div>
+      <h5>Tutors</h5>
+      <a data-go="apply" href="#apply">Become a tutor</a>
+      <a>Tutor handbook</a>
+      <a>Payouts</a>
+    </div>
+    <div>
+      <h5>Brain Sync</h5>
+      <a>About</a>
+      <a>Privacy</a>
+      <a>Terms</a>
+      <a>Contact</a>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2026 Brain Sync · Made at IMC Krems</span>
+    <span>Group 1 · HCI Project 2026</span>
+  </div>
+</footer>
+
+<script src="prototype/app.js"></script>
+</body>
+</html>
